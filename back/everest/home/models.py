@@ -1,5 +1,3 @@
-from django.urls import reverse
-
 from django.db import models
 
 
@@ -44,3 +42,27 @@ class News(models.Model):
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
 
+
+class Category(models.Model):
+    category_images = models.ImageField(upload_to='category_images/', verbose_name='Изображение')
+    category_title = models.CharField(max_length=250, verbose_name='Описание')
+
+    def __str__(self):
+        return self.category_title
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+
+class ParentCategory(models.Model):
+    parent_category = models.ForeignKey(Category, related_name='parent', on_delete=models.CASCADE, null=True,
+                                        verbose_name='К какой категории отностится')
+    parent_category_name = models.CharField(max_length=250, verbose_name='Под категория')
+
+    def __str__(self):
+        return self.parent_category_name
+
+    class Meta:
+        verbose_name = 'Под категория'
+        verbose_name_plural = 'Под категории'
