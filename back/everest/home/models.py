@@ -58,7 +58,7 @@ class Category(models.Model):
 class ParentCategory(models.Model):
     parent_category = models.ForeignKey(Category, related_name='parent', on_delete=models.CASCADE, null=True,
                                         verbose_name='К какой категории отностится')
-    parent_category_name = models.CharField(max_length=250, verbose_name='Под категория')
+    parent_category_name = models.CharField(max_length=250, verbose_name='Под категория', null=True)
 
     def __str__(self):
         return self.parent_category_name

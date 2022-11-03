@@ -15,11 +15,16 @@ class NewsSerializer(serializers.ModelSerializer):
         fields = ('id', 'news_images', 'news_date', 'total_views', 'news_title', 'slug')
 
 
+class ParentCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ParentCategory
+        fields = ('id', 'parent_category_name')
+
+
 class CategorySerializer(serializers.ModelSerializer):
-    parent = serializers.SlugRelatedField(
+    parent = ParentCategorySerializer(
         many=True,
-        read_only=True,
-        slug_field='parent_category_name'
+        read_only=True
     )
 
     class Meta:
