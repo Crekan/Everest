@@ -6,7 +6,7 @@ from .models import *
 class SliderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Slider
-        fields = ('slider_images', 'slider_title', 'slider_description')
+        fields = ('id', 'slider_images', 'slider_title', 'slider_description')
 
 
 class NewsSerializer(serializers.ModelSerializer):
@@ -18,7 +18,7 @@ class NewsSerializer(serializers.ModelSerializer):
 class ParentCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ParentCategory
-        fields = ('id', 'parent_category_name')
+        fields = ('id', 'name', 'images')
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -29,4 +29,4 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ('id', 'category_images', 'category_title', 'parent')
+        fields = ('id', 'images', 'title', 'parent')

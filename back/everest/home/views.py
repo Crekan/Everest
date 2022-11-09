@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from rest_framework import generics
+from django.urls import reverse
 
 from .serializers import *
 
@@ -24,18 +24,3 @@ def post_view(request, slug):
         Ip.objects.create(ip=ip)
         post.news_views.add(Ip.objects.get(ip=ip))
     return redirect(reverse('post', slug))
-
-
-class SliderAPIView(generics.ListAPIView):
-    queryset = Slider.objects.all()
-    serializer_class = SliderSerializer
-
-
-class NewsAPIView(generics.ListAPIView):
-    queryset = News.objects.all()
-    serializer_class = NewsSerializer
-
-
-class CategoryAPIView(generics.ListAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer

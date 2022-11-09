@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'home.apps.HomeConfig',
+    'product.apps.ProductConfig',
 
     'debug_toolbar',
     'rest_framework',
