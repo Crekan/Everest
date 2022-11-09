@@ -1,0 +1,50 @@
+[
+    [
+        "# Акзонобел",
+        "# Интерьерные краски",
+        {
+            "id": "0",
+            "img": "/assets/img/HomePage/news-img1.png",
+            "alt": "img1",
+            "date": "04.05.2022",
+            "views": "121",
+            "title": "Dulux Diamond Max Protect"
+        }
+    ],
+    [
+        "# Bostik",
+        "# Клей",
+        {
+            "id": "1",
+            "img": "/assets/img/HomePage/news-img2.png",
+            "alt": "img2",
+            "date": "30.04.2022",
+            "views": "581",
+            "title": "Новинка! Быстросохнущий монтажный клей MAMUT"
+        }
+    ],
+    [
+        "# АКЗОНОБЕЛЬ",
+        "# Dulux",
+        {
+            "id": "2",
+            "img": "/assets/img/HomePage/news-img3.png",
+            "alt": "img3",
+            "date": "20.04.2022",
+            "views": "1 089",
+            "title": "Сканер цвета Dulux — лидерам отрасли!"
+        }
+    ],
+    [
+        "# Акция",
+        "# Сайвер",
+        {
+            "id": "3",
+            "img": "/assets/img/HomePage/news-img4.png",
+            "alt": "img4",
+            "date": "05.03.2022",
+            "views": "1 821",
+            "title": "Негорючие системы окраски КМ0 - Dulux Diamond Max Protect"
+        }
+    ]
+]

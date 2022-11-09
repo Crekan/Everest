@@ -1,0 +1,128 @@
+<template>
+  <div class="news__item">
+    <div class="news__item-up">
+      <img class="news__item-img" :src="item.img" :alt="item.alt">
+      <div class="news__item-additional-info news__item-additional-info_y">
+        <div class="news__item-date news__item-date_mr24">
+          <span>{{ item.date }}</span>
+        </div>
+        <div class="news__item-views">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.7781 4.90686L13.2386 4.52227L13.2383 4.52182L12.7781 4.90686ZM12.7781 6.09314L13.2383 6.47818L13.2383 6.4781L12.7781 6.09314ZM1.22208 6.09314L1.68226 5.7081L1.67958 5.70494L1.22208 6.09314ZM1 5.5H0.4H1ZM1.22208 4.90686L1.67959 5.29507L1.68224 5.29189L1.22208 4.90686ZM12.3176 5.29144C12.4276 5.42324 12.4272 5.57746 12.3179 5.70819L13.2383 6.4781C13.7207 5.9014 13.7203 5.09905 13.2386 4.52227L12.3176 5.29144ZM12.3179 5.70811C11.8699 6.24352 11.1153 7.05346 10.1707 7.72528C9.2213 8.40059 8.13136 8.9 7.0001 8.9V10.1C8.47914 10.1 9.81225 9.45284 10.8663 8.70315C11.9252 7.94997 12.7544 7.05649 13.2383 6.47818L12.3179 5.70811ZM7.0001 8.9C5.86883 8.9 4.77889 8.40059 3.82945 7.72528C2.88493 7.05346 2.13025 6.24352 1.68224 5.70811L0.761925 6.47818C1.24582 7.05649 2.07499 7.94997 3.13392 8.70315C4.18794 9.45284 5.52105 10.1 7.0001 10.1V8.9ZM1.67958 5.70494C1.62405 5.63951 1.6 5.56717 1.6 5.5H0.4C0.4 5.86245 0.532225 6.2075 0.764592 6.48134L1.67958 5.70494ZM1.6 5.5C1.6 5.43283 1.62405 5.36049 1.67958 5.29506L0.764592 4.51866C0.532225 4.7925 0.4 5.13755 0.4 5.5H1.6ZM1.68224 5.29189C2.13025 4.75648 2.88493 3.94654 3.82945 3.27472C4.77889 2.59941 5.86883 2.1 7.0001 2.1V0.9C5.52105 0.9 4.18794 1.54716 3.13392 2.29685C2.07499 3.05003 1.24582 3.94352 0.761925 4.52182L1.68224 5.29189ZM7.0001 2.1C8.13136 2.1 9.2213 2.59941 10.1707 3.27472C11.1153 3.94654 11.8699 4.75648 12.3179 5.29189L13.2383 4.52182C12.7544 3.94352 11.9252 3.05003 10.8663 2.29685C9.81225 1.54716 8.47914 0.9 7.0001 0.9V2.1ZM8.27263 5.5C8.27263 6.06664 7.75386 6.61429 7.0001 6.61429V7.81429C8.31467 7.81429 9.47263 6.82691 9.47263 5.5H8.27263ZM7.0001 6.61429C6.24633 6.61429 5.72756 6.06664 5.72756 5.5H4.52756C4.52756 6.82691 5.68552 7.81429 7.0001 7.81429V6.61429ZM5.72756 5.5C5.72756 4.93336 6.24633 4.38571 7.0001 4.38571V3.18571C5.68552 3.18571 4.52756 4.17309 4.52756 5.5H5.72756ZM7.0001 4.38571C7.75386 4.38571 8.27263 4.93336 8.27263 5.5H9.47263C9.47263 4.17309 8.31467 3.18571 7.0001 3.18571V4.38571Z" fill="#8595A7"/>
+          </svg>
+          <span>{{ item.views }}</span>
+        </div>
+      </div>
+      <a href="#" class="news__item-title">{{ item.title }}</a>
+    </div>
+    <div class="news__item-hashtags">
+      <div
+          class="news__item-hashtag"
+          v-for="(hashtag, idx) in news"
+          v-show="typeof hashtag !== 'object'"
+          :key="idx"
+      >
+        <p>{{ hashtag }}</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "NewsItemComponent",
+  props: ['item', 'news', 'index'],
+  setup() {
+
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.news {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 560px;
+  }
+
+  &__item-img {
+    max-width: unset;
+    position: relative;
+    bottom: 0;
+    transition: .25s;
+    cursor: pointer;
+  }
+
+  &__item-img:hover {
+    position: relative;
+    bottom: 8px;
+    transition: .25s;
+  }
+
+  &__item-additional-info {
+    display: flex;
+
+    &_y {
+      margin: 35px 0 12px;
+    }
+  }
+
+  &__item-date,
+  &__item-views {
+    font-weight: 400;
+    font-size: 14px;
+    color: #878C9E;
+
+    & > span {
+      margin-left: 10px;
+      color: inherit;
+    }
+  }
+
+  &__item-views {
+    display: flex;
+    align-items: center;
+    line-height: 18px;
+  }
+
+  &__item-date {
+    line-height: 21px;
+
+    &_mr24 {
+      margin-right: 24px;
+    }
+  }
+
+  &__item-title {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 28px;
+    transition: .25s;
+
+    &_mt12 {
+      margin-top: 12px;
+    }
+  }
+
+  &__item-title:hover {
+    color: #2A79CC;
+    transition: .25s;
+  }
+
+  &__item-hashtags {
+    display: flex;
+    gap: 0 24px;
+  }
+
+  &__item-hashtag {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #2A79CC;
+  }
+}
+
+</style>
