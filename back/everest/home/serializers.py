@@ -9,12 +9,6 @@ class SliderSerializer(serializers.ModelSerializer):
         fields = ('id', 'slider_images', 'slider_title', 'slider_description')
 
 
-class NewsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = News
-        fields = ('id', 'news_images', 'news_date', 'total_views', 'news_title', 'slug')
-
-
 class ParentCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ParentCategory

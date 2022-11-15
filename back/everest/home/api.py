@@ -11,14 +11,6 @@ class SliderViewSet(viewsets.ModelViewSet):
     serializer_class = SliderSerializer
 
 
-class NewsViewSet(viewsets.ModelViewSet):
-    queryset = News.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-    serializer_class = NewsSerializer
-
-
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     permission_classes = [

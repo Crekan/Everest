@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     'home.apps.HomeConfig',
     'product.apps.ProductConfig',
+    'news.apps.NewsConfig',
 
+    'tinymce',
     'debug_toolbar',
     'rest_framework',
 ]
