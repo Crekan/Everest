@@ -14,6 +14,18 @@ class TrademarkSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 
+class ProductImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductImage
+        fields = ('id', 'image', 'is_active')
+
+
+class CharacteristicsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Characteristics
+        fields = '__all__'
+
+
 class ProductSerializer(serializers.ModelSerializer):
     cat_product = CategorySerializer(
         many=True,
@@ -23,7 +35,16 @@ class ProductSerializer(serializers.ModelSerializer):
         many=True,
         read_only=True
     )
+    product_image = ProductImageSerializer(
+        many=True,
+        read_only=True
+    )
+    product_characteristics = CharacteristicsSerializer(
+        many=True,
+        read_only=True
+    )
 
     class Meta:
         model = Product
-        fields = ('id', 'images', 'title', 'new_price', 'old_price', 'cat_product', 'brand_name')
+        fields = ('id', 'images', 'title', 'new_price', 'old_price', 'cat_product', 'brand_name', 'product_image',
+                  'about_the_product', 'product_characteristics')
