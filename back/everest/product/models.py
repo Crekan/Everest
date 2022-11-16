@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from tinymce.models import HTMLField
 
@@ -52,6 +53,21 @@ class Characteristics(models.Model):
     class Meta:
         verbose_name = 'Характеристика'
         verbose_name_plural = 'Характеристики'
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comment_post')
+    user = models.CharField(max_length=255, verbose_name='Имя')
+    email = models.EmailField(verbose_name='Email')
+    text = models.TextField(verbose_name='Впечатления о товаре')
+    date_added = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.user} | left a comment on a post - {self.post}'
+
+    class Meta:
+        verbose_name = 'Коментарий'
+        verbose_name_plural = 'Коментарии'
 
 
 class Category(models.Model):
